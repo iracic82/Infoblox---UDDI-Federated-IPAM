@@ -1,0 +1,39 @@
+slug: infoblox-luddi-ipam
+id: l95dr3nibefy
+revision: -62135596800
+title: Infoblox - UDDI & Federated IPAM
+teaser: Universal DNS Management for Consolidated Visibility & Streamlined Operations
+description: "\U0001F9ED Description:\n\nIn this lab, you’ll walk through how Infoblox
+  Universal DDI (UDDI) delivers a centralized control plane for DNS management across
+  multi-cloud environments—specifically AWS and Azure.\n\nYou’ll simulate a real-world
+  enterprise scenario where:\n\n\t•\tMultiple VPCs and VNets span across AWS (eu-west-2)
+  and Azure (northerneurope)\n\t•\tDNS zones and records are managed in the Infoblox
+  UDDI Portal\n\t•\tChanges made in UDDI (e.g., new A/CNAME records, updates) are
+  synchronized bi-directionally to AWS Route 53 Private Hosted Zones and Azure Private
+  DNS Zones\n\t•\tCross-cloud services and applications resolve consistently across
+  platforms\n\t•\tYou gain consolidated visibility, auditing, and change tracking
+  across all platforms via Infoblox\n\n\n\t\U0001F3AF Key Learning Objectives:\n\n\t•\tUnderstand
+  how Infoblox UDDI acts as a DNS Single Source of Truth\n\t•\tLearn how DNS records
+  are synced between UDDI, AWS Route 53, and Azure DNS\n\t•\tSee DNS records propagate
+  in real time across clouds\n\t•\tValidate name resolution across multi-cloud app
+  stacks\n\t•\tExperience operational simplicity with a unified DNS control plane"
+icon: https://play.instruqt.com/assets/tracks/ywozzymyekgv/c31663d57dce11f7baad50af3f7dec77/assets/Infoblox-logo-for-email.png
+tags: []
+owner: infoblox
+developers:
+- iracic@infoblox.com
+instructors: []
+show_timer: true
+idle_timeout: 0
+timelimit: 14400
+lab_config:
+  extend_ttl: 0
+  sidebar_enabled: true
+  hideStopButton: false
+  feedback_recap_enabled: true
+  feedback_tab_enabled: false
+  theme:
+    name: modern-dark
+  override_challenge_layout: false
+  loadingMessages: true
+enhanced_loading: null
