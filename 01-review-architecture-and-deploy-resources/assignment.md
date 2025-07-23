@@ -25,6 +25,10 @@ tabs:
   title: Azure Console
   type: browser
   hostname: azure
+- id: wmlobyx878xr
+  title: GCP Console
+  type: browser
+  hostname: gcp
 - id: huegpkvjgahs
   title: Infoblox Portal
   type: browser
@@ -39,21 +43,41 @@ lab_config:
   default_layout_sidebar_size: 0
 enhanced_loading: null
 ---
-In this lab, you will get hands-on with Infoblox Universal DNS Management, a single solution for
-visibility and control of DNS tools used across on-premises, hybrid, and multi-cloud networks. You will
-begin with a tour of the centralized visibility and management for DNS, exploring the efficiency of the
-consolidated Infoblox Portal. Then, you’ll manage DNS records in Azure DNS and AWS Route 53, using
-the same Universal DDI interface and workflow to make updates across clouds.
+🧭 Lab Intro: Introduction to Authoritative IPAM with Infoblox UDDI
 
+In this lab, you’ll get hands-on with Infoblox Universal DDI (UDDI)—a single, authoritative source for managing IP Address Management (IPAM) across your hybrid and multi-cloud infrastructure.
+
+You’ll begin by exploring how on-prem IP address space is organized using Federated Realms. Then you’ll use Universal Asset Insights to discover live cloud IP data in AWS, Azure, and GCP.
+
+Finally, you’ll enforce IP allocation policies to prevent conflicts and mismanagement across environments—all from a single control plane.
+
+
+🎯 In This Section We Will:
+
+1.	Review how IPs are managed on-prem using Federated Realms
+2.	Log in to AWS, Azure, and GCP consoles
+3.	Deploy cloud resources to simulate live network environments
+4. Manage access to Infoblox Portal
+
+---
+
+☁️ Clouds Are Messy — Let’s Fix That
+
+In the real world, cloud networks can quickly become fragmented:
+	•	Ad hoc subnetting across accounts and teams
+	•	Shadow IT creating overlapping IP ranges
+	•	Lack of IP ownership or lifecycle tracking
+	•	No visibility into zombie or orphaned assets
+
+Infoblox UDDI solves this by creating an authoritative source of truth that spans:
+	•	On-prem (via Federated Realms)
+	•	AWS, Azure, and GCP (via Discovery and Delegation)
+	•	IPAM policy enforcement and automation
+
+With this lab, you’ll turn chaos into consistency—across clouds, teams, and geos.
 
 > [!IMPORTANT]
-> **NOTE:** This environment is *real*! AWS and Azure Cloud Accounts have been created for each student. No bitcoin mining, please! :)
-
-In this section we will:
-1) Review the cloud architecture
-2) Login to your cloud account console's
-3) Deploy resources onto your cloud regions
-4) Create your Infoblox Portal user
+NOTE: This environment is real! You’ll be using actual AWS, Azure, and GCP cloud credentials. No bitcoin mining, please.
 
 ---
 
@@ -69,12 +93,34 @@ Navigate to the *Lab Diagram* tab above and review the diagram. This is what we'
 
 ## 2) Login to your cloud account consoles
 ===
-Using the credentials below, login to the AWS and Azure Web Consoles in their respective tabs above:
+
+🔐 Access Instructions
+
+Using the credentials below, log in to the AWS,Azure and GCP Web Consoles.
 
 ---
 # AWS Credentials ☁️
 
-Select "IAM Account" and enter the **AWS ID**:
+🔐 Logging In to the AWS Console
+
+👉 First, open the “AWS Console” tab on the left-hand side of your Instruqt lab environment. This will launch the AWS login page in a new browser panel.
+
+![Screenshot 2025-07-12 at 11.23.29.png](https://play.instruqt.com/assets/tracks/atmmwsclkofd/86d80bec0e3af0161dbb62f6e26e2626/assets/Screenshot%202025-07-12%20at%2011.23.29.png)
+
+Then follow these steps:
+1.	Select “IAM Account”
+On the login screen, choose IAM Account (not root).
+
+![Screenshot 2025-07-12 at 11.23.29.png](https://play.instruqt.com/assets/tracks/atmmwsclkofd/86d80bec0e3af0161dbb62f6e26e2626/assets/Screenshot%202025-07-12%20at%2011.23.29.png)
+
+2.	Enter the AWS Account ID, AWS IAM username, and password by copying and pasting the values from the section below.
+
+📝 Note: Avoid the root account login — this lab is configured for IAM users only.
+
+---
+# AWS Credentials ☁️
+
+**AWS Account ID**
 ```
 [[ Instruqt-Var key="INSTRUQT_AWS_ACCOUNT_INFOBLOX_DEMO_ACCOUNT_ID" hostname="shell" ]]
 ```
@@ -93,27 +139,76 @@ Select "IAM Account" and enter the **AWS ID**:
 
 # AZURE Credentials ☁️
 
+👉 Open the Instruqt tab on the left labeled “AZURE Console”
+This will launch the Azure login page directly inside your sandbox environment.
+
+⸻
+
+🧭 Step-by-Step Instructions
+
+
+1.	Click “Sign In”
+On the landing page, click the “Sign in” button at the top right or in the black banner.
+2.	Enter Credentials
+Use the Azure username and password provided under **AZURE CREDENTIALS**.
+3.	Skip the Microsoft Onboarding Tour
+If prompted with a “Get Started with Azure” setup wizard or tour:
+•	Click “Skip”, “Maybe later”, or “Dismiss”
+•	Do not start a free trial or create new subscriptions
+•	You are already working in a pre-provisioned lab environment
+4.	Ready to Go
+Once logged in, use the top search bar to navigate to services like:
+•	Virtual Network
+•	Private DNS Zones
+•	Resource groups
+
+AZURE CREDENTIALS
+
+---
+
 **AZURE SUBSCRIPTION**
 ```
 [[ Instruqt-Var key="INSTRUQT_AZURE_SUBSCRIPTION_INFOBLOX_TENANT_SUBSCRIPTION_ID" hostname="shell" ]]
 ```
 
-**AZURE USERNAME**
+**AZURE Username**
 ```
 [[ Instruqt-Var key="INSTRUQT_AZURE_SUBSCRIPTION_INFOBLOX_TENANT_USERNAME" hostname="shell" ]]
 ```
 
-**AZURE PASSWORD**
+**AZURE Password**
 ```
 [[ Instruqt-Var key="INSTRUQT_AZURE_SUBSCRIPTION_INFOBLOX_TENANT_PASSWORD" hostname="shell" ]]
 ```
 
+---
 
+# GCP Credentials ☁️
+
+**GCP Project**
+```
+[[ Instruqt-Var key="INSTRUQT_GCP_PROJECT_INFOBLOX_DEMO_PROJECT_NAME" hostname="shell" ]]
+```
+
+**GCP Username**
+```
+[[ Instruqt-Var key="INSTRUQT_GCP_PROJECT_INFOBLOX_DEMO_USER_EMAIL" hostname="shell" ]]
+```
+
+**GCP Password**
+```
+[[ Instruqt-Var key="INSTRUQT_GCP_PROJECT_INFOBLOX_DEMO_USER_PASSWORD" hostname="shell" ]]
+```
+---
 
 ## 3) Deploy resources onto your cloud regions
 ===
 
-Now that you've logged into the cloud providers consoles its time to deploy resources for upcoming Instruqt Challenges:
+🧱 Deploying the Lab Infrastructure
+
+Now that you’ve logged into both cloud consoles, it’s time to deploy the infrastructure that reflects the architecture shown in the lab diagram.
+
+👉 Switch back to the “>_ Shell” tab in the left-side panel of your Instruqt lab to proceed.
 
 ### 1. Deploy AWS resources in EU
 
@@ -128,7 +223,7 @@ You can verify this pre-deployment in two ways:
 •	🧾 Terraform Output – Run terraform output in the repo directory to view key variables and resource info like instance IPs, VPC IDs, etc.
 
 ```run
-cd ~/infoblox-lab/Infoblox-PoC/terraform
+cd ~/infoblox-lab/uddi-ipam/terraform
 terraform output
 ```
 
@@ -137,7 +232,7 @@ If you’re curious, the actual Terraform code used is available in the **Editor
 Set up the DNS infrastructure with the appropriate VPC associations and A-records as outlined in the lab diagram.
 
 ```run
-cd ~/infoblox-lab/Infoblox-PoC/terraform
+cd ~/infoblox-lab/uddi-ipam/terraform
 terraform apply --auto-approve -target=aws_route53_zone.private_zone -target=aws_route53_record.dns_records
 ```
 
@@ -154,7 +249,7 @@ You can validate this pre-provisioned state in two simple ways:
 •	🧾 Terraform Output – Run terraform output in the working directory to get useful details like IP addresses, VNet names, and other variables used in the lab.
 
 ```run
-cd ~/infoblox-lab/Infoblox-PoC/terraform
+cd ~/infoblox-lab/uddi-ipam/terraform
 terraform output
 ```
 
@@ -164,9 +259,29 @@ Set up the DNS infrastructure with the appropriate Vnet associations and A-recor
 
 
 ```run
-cd ~/infoblox-lab/Infoblox-PoC/terraform
+cd ~/infoblox-lab/uddi-ipam/terraform
 terraform apply --auto-approve -target=azurerm_private_dns_zone.private_dns_azone -target=azurerm_private_dns_zone_virtual_network_link.eu_vnet_links -target=azurerm_private_dns_a_record.eu_dns_records
 ```
+
+### 3. Deploy GCP resources in North Europe
+
+⚙️ Pre-deployed Infrastructure (GCP)
+
+To speed up the lab and avoid unnecessary provisioning time, the core GCP resources have already been deployed in advance using Terraform.
+
+You can validate this pre-provisioned state in two simple ways:
+
+•	🔍 GCP Console – according to the LAB Diagram.
+
+•	🧾 Terraform Output – Run terraform output in the working directory to get useful details like IP addresses, VPC names, and other variables used in the lab.
+
+```run
+cd ~/infoblox-lab/uddi-ipam/terraform
+terraform output
+```
+
+Want to see how it all works? The Terraform code is fully visible in the **Editor** window, so feel free to poke around and understand the architecture.
+
 
 
 ## 4) Create Admin User to your Infoblox Portal Dashboard
@@ -207,7 +322,7 @@ Your user account and sandbox have already been created. The next step is to set
 ---
 
 
-![Screenshot 2025-04-01 at 11.03.20.png](https://play.instruqt.com/assets/tracks/ywozzymyekgv/bdbf322902db478154c3fece79237f86/assets/Screenshot%202025-04-01%20at%2011.03.20.png)
+![Screenshot 2025-07-18 at 09.16.24.png](https://play.instruqt.com/assets/tracks/l95dr3nibefy/09e41ec1cf57a6f2cbe5d2c47721a26b/assets/Screenshot%202025-07-18%20at%2009.16.24.png)
 
 ---
 
@@ -223,7 +338,7 @@ If you’ve previously used your email to access the Infoblox SaaS platform, you
 2.	Login using your existing email address and password.
 3.	Once authenticated, the lab tenant will be automatically added to your list of available tenants (you’ll see it in the top-right tenant switcher).
 
-![Screenshot 2025-07-03 at 11.19.07.png](https://play.instruqt.com/assets/tracks/ywozzymyekgv/93f17f66e50b5a58f68e3e3d3953396a/assets/Screenshot%202025-07-03%20at%2011.19.07.png)
+![Screenshot 2025-07-18 at 09.16.24.png](https://play.instruqt.com/assets/tracks/l95dr3nibefy/09e41ec1cf57a6f2cbe5d2c47721a26b/assets/Screenshot%202025-07-18%20at%2009.16.24.png)
 
 In order to RESET the password ( ONLY if required ) follow the steps below:
 

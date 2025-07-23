@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # This script runs when the platform setup the challenge.
 #
@@ -9,5 +9,20 @@
 echo "This is the setup script"
 
 set-workdir /root/infoblox-lab
+
+# Run Python scripts
+cd /root/infoblox-lab/uddi-ipam/scripts
+sleep 480
+python3 deploy_aws_discovery.py
+sleep 120
+python3 deploy_azure_discovery.py
+sleep 120
+python3 deploy_gcp_discovery.py
+sleep 120
+python3 deploy_ipam.py
+sleep 30 
+python3 deploy_api_key.py
+
+source /root/.bashrc
 
 exit 0

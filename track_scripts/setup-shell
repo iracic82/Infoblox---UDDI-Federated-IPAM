@@ -11,9 +11,9 @@ pip3 install requests
 
 # Pull Lab assets (terraform & scripts) from github
 mkdir /root/infoblox-lab/
-git clone https://github.com/iracic82/Infoblox-PoC.git
-cp -r /root/Infoblox-PoC /root/infoblox-lab/
-#rm -r /root/ProsimoLabs
+git clone https://github.com/iracic82/uddi-ipam.git
+cp -r /root/uddi-ipam /root/infoblox-lab/
+
 
 
 
@@ -42,6 +42,9 @@ echo "export TF_VAR_client=${INSTRUQT_AZURE_SUBSCRIPTION_INFOBLOX_TENANT_SPN_ID}
 echo "export TF_VAR_clientsecret=${INSTRUQT_AZURE_SUBSCRIPTION_INFOBLOX_TENANT_SPN_PASSWORD} " >> /root/.bashrc
 echo "export TF_VAR_tenantazure=${INSTRUQT_AZURE_SUBSCRIPTION_INFOBLOX_TENANT_TENANT_ID} " >> /root/.bashrc
 echo "export Infoblox_Token=${Infoblox_Token} " >> /root/.bashrc
+echo "export TF_VAR_instruqt_id=${INSTRUQT_PARTICIPANT_ID} " >> /root/.bashrc
+echo "export INFOBLOX_EMAIL=${INFOBLOX_EMAIL} " >> /root/.bashrc
+echo "export INFOBLOX_PASSWORD=${INFOBLOX_PASSWORD} " >> /root/.bashrc
 echo "export INSTRUQT_EMAIL=${INSTRUQT_USER_EMAIL} " >> /root/.bashrc
 
 # GCP project and credentials
@@ -57,7 +60,7 @@ source /root/.bashrc
 
 
 # Run Python scripts
-cd /root/infoblox-lab/Infoblox-PoC/scripts
+cd /root/infoblox-lab/uddi-ipam/scripts
 python3 create_user.py
 sleep 10
 python3 create_sandbox.py
@@ -65,17 +68,19 @@ sleep 180
 
 # Run terraform to prepare CSPs env and spin up Infoblox resources
 
-cd /root/infoblox-lab/Infoblox-PoC/terraform
+cd /root/infoblox-lab/uddi-ipam/terraform
 terraform init 
 sleep 10
 terraform apply --auto-approve  -target=module.aws__instances_eu -target=aws_ec2_transit_gateway.eu
 sleep 10
-terraform apply --auto-approve  -target=aws_ec2_transit_gateway_route_table.tgw_rt -target=aws_ec2_transit_gateway_vpc_attachment.tgw_attachments -target=aws_ec2_transit_gateway_route_table_association.tgw_rt_associations -target=aws_route.tgw_routes -target=aws_ec2_transit_gateway_route.tgw_routes
+#terraform apply --auto-approve  -target=aws_ec2_transit_gateway_route_table.tgw_rt -target=aws_ec2_transit_gateway_vpc_attachment.tgw_attachments -target=aws_ec2_transit_gateway_route_table_association.tgw_rt_associations -target=aws_route.tgw_routes -target=aws_ec2_transit_gateway_route.tgw_routes
 sleep 10
 terraform apply --auto-approve -target=module.azure_instances_eu
 sleep 10
-terraform apply --auto-approve -target=azurerm_virtual_network_peering.vnet_peering
+terraform apply --auto-approve -target=module.gcp_instances
+sleep 10
+#terraform apply --auto-approve -target=azurerm_virtual_network_peering.vnet_peering
 
 
 # Set AWS creds
-cp ~/.aws/credentials /root/infoblox-lab/Infoblox-PoC/terraform
+cp ~/.aws/credentials /root/infoblox-lab/uddi-ipam/terraform
