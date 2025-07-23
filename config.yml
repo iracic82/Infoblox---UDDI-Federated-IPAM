@@ -175,6 +175,6 @@ azure_subscriptions:
   roles:
   - Owner
 secrets:
-- name: Infoblox_Token
 - name: INFOBLOX_PASSWORD
 - name: INFOBLOX_EMAIL
+- name: Infoblox_Token
