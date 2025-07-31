@@ -64,7 +64,7 @@ gcp_projects:
   - roles/compute.admin
   - roles/compute.viewer
   - roles/dns.reader
-  - roles/resourcemanager.folderViewer
+  - roles/dns.admin
 aws_accounts:
 - name: infoblox-demo
   services:
