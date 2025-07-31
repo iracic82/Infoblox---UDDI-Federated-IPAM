@@ -1,6 +1,18 @@
 #!/bin/bash
 
-# Install Terraform & Requests library
+# ------------------------
+# ✅ Wait for Instruqt bootstrap
+# ------------------------
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]; do
+  echo "⏳ Waiting for Instruqt to finish bootstrapping the virtual machine..."
+  sleep 1
+done
+
+
+
+# ------------------------
+# 🔧 Install Dependencies
+# ------------------------
 apt update -y
 apt install git -y
 wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
@@ -17,7 +29,9 @@ cp -r /root/uddi-ipam /root/infoblox-lab/
 
 
 
-# Set runtime variables
+# ------------------------
+# ⚙️ Set Agent Variables
+# ------------------------
 
  agent variable set AWS_ID ${INSTRUQT_AWS_ACCOUNT_INFOBLOX_DEMO_ACCOUNT_ID}
  agent variable set User_Email ${INSTRUQT_USER_EMAIL}
@@ -32,7 +46,9 @@ cp -r /root/uddi-ipam /root/infoblox-lab/
  agent variable set AZURE_SUBSCRIPTION_PASSWORD ${INSTRUQT_AZURE_SUBSCRIPTION_INFOBLOX_TENANT_PASSWORD}
 
 
-# Set env variables AWS and Azure
+# ------------------------
+# 🌍 Export Environment Variables
+# ------------------------
 
 echo "export TF_VAR_Access_Key_AWS=${INSTRUQT_AWS_ACCOUNT_INFOBLOX_DEMO_AWS_ACCESS_KEY_ID} " >> /root/.bashrc
 echo "export TF_VAR_Access_Secret_AWS=${INSTRUQT_AWS_ACCOUNT_INFOBLOX_DEMO_AWS_SECRET_ACCESS_KEY} " >> /root/.bashrc
