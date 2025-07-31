@@ -62,10 +62,9 @@ gcp_projects:
   - europe-west1
   roles:
   - roles/compute.admin
-  - roles/compute.networkAdmin
   - roles/compute.viewer
   - roles/dns.reader
-  - roles/dns.admin
+  - roles/resourcemanager.folderViewer
 aws_accounts:
 - name: infoblox-demo
   services:
