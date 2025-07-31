@@ -36,29 +36,23 @@ gcp_projects:
   - pubsublite.googleapis.com
   - redis.googleapis.com
   - run.googleapis.com
-  - runtimeconfig.googleapis.com
-  - secretmanager.googleapis.com
   - securitycenter.googleapis.com
   - servicedirectory.googleapis.com
   - servicemanagement.googleapis.com
   - servicenetworking.googleapis.com
   - sourcerepo.googleapis.com
   - speech.googleapis.com
-  - storage-api.googleapis.com
   - storage-component.googleapis.com
   - storagetransfer.googleapis.com
   - sts.googleapis.com
   - admin.googleapis.com
-  - appengine.googleapis.com
   - artifactregistry.googleapis.com
   - bigquerystorage.googleapis.com
   - certificatemanager.googleapis.com
   - cloudapis.googleapis.com
   - cloudasset.googleapis.com
-  - cloudbilling.googleapis.com
-  - cloudbuild.googleapis.com
-  - cloudfunctions.googleapis.com
-  - cloudscheduler.googleapis.com
+  - container.googleapis.com
+  - containerregistry.googleapis.com
   - deploymentmanager.googleapis.com
   - networkconnectivity.googleapis.com
   regions:
@@ -67,7 +61,6 @@ gcp_projects:
   - roles/compute.admin
   - roles/compute.networkAdmin
   - roles/compute.networkViewer
-  - roles/networkmanagement.viewer
   - roles/dns.admin
   - roles/dns.reader
   - roles/resourcemanager.folderAdmin
