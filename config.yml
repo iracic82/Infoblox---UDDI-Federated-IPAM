@@ -55,6 +55,9 @@ gcp_projects:
   - containerregistry.googleapis.com
   - deploymentmanager.googleapis.com
   - networkconnectivity.googleapis.com
+  - iamcredentials.googleapis.com
+  - appengine.googleapis.com
+  - storage.googleapis.com
   regions:
   - europe-north1
   - europe-central2
@@ -65,6 +68,9 @@ gcp_projects:
   - roles/compute.viewer
   - roles/dns.reader
   - roles/dns.admin
+  - roles/iam.serviceAccountUser
+  - roles/iam.serviceAccountAdmin
+  - roles/compute.networkAdmin
 aws_accounts:
 - name: infoblox-demo
   services:
