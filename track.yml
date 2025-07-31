@@ -22,7 +22,6 @@ owner: infoblox
 developers:
 - iracic@infoblox.com
 instructors: []
-maintenance: true
 show_timer: true
 idle_timeout: 0
 timelimit: 14400
