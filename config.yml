@@ -59,8 +59,6 @@ gcp_projects:
   - cloudbuild.googleapis.com
   - cloudfunctions.googleapis.com
   - cloudscheduler.googleapis.com
-  - container.googleapis.com
-  - containerregistry.googleapis.com
   - deploymentmanager.googleapis.com
   - networkconnectivity.googleapis.com
   regions:
