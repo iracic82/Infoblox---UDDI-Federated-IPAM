@@ -72,6 +72,7 @@ gcp_projects:
   - roles/iam.serviceAccountAdmin
   - roles/compute.networkAdmin
   - roles/container.clusterViewer
+  - roles/monitoring.viewer
 aws_accounts:
 - name: infoblox-demo
   services:
