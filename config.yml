@@ -58,6 +58,8 @@ gcp_projects:
   - iamcredentials.googleapis.com
   - appengine.googleapis.com
   - storage.googleapis.com
+  - storage-api.googleapis.com
+  - monitoring.googleapis.com
   regions:
   - europe-north1
   - europe-central2
@@ -73,6 +75,8 @@ gcp_projects:
   - roles/compute.networkAdmin
   - roles/container.clusterViewer
   - roles/monitoring.viewer
+  - roles/storage.admin
+  - roles/storage.folderAdmin
 aws_accounts:
 - name: infoblox-demo
   services:
