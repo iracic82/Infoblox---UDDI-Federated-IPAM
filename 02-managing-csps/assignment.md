@@ -404,7 +404,7 @@ We navigate to Configure > Networking > Discovery to confirm that discovery jobs
 
 Please login to the Infoblox Portal:
 
-**Under Configure →Networking →DNS → Zones**, we explore the AWS-specific DNS view we have created in previous steps:
+**Under Configure →Networking →DNS → Zones**,  review the AWS-hosted zone created earlier — inspect its records inside the Infoblox **default** DNS View, where all zones are consolidated:
 
 ![Screenshot 2025-07-03 at 06.14.04.png](https://play.instruqt.com/assets/tracks/ywozzymyekgv/9b1e2fbe2c9081f55274cc2225e4ea5b/assets/Screenshot%202025-07-03%20at%2006.14.04.png)
 
