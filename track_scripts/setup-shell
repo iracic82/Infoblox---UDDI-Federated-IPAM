@@ -88,13 +88,12 @@ cd /root/infoblox-lab/uddi-ipam/terraform
 terraform init 
 sleep 10
 terraform apply --auto-approve  -target=module.aws__instances_eu -target=aws_ec2_transit_gateway.eu
-sleep 10
+sleep 60
 #terraform apply --auto-approve  -target=aws_ec2_transit_gateway_route_table.tgw_rt -target=aws_ec2_transit_gateway_vpc_attachment.tgw_attachments -target=aws_ec2_transit_gateway_route_table_association.tgw_rt_associations -target=aws_route.tgw_routes -target=aws_ec2_transit_gateway_route.tgw_routes
-sleep 10
 terraform apply --auto-approve -target=module.azure_instances_eu
-sleep 10
+sleep 60
 terraform apply --auto-approve -target=module.gcp_instances
-sleep 10
+sleep 60
 #terraform apply --auto-approve -target=azurerm_virtual_network_peering.vnet_peering
 
 
