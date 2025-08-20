@@ -118,7 +118,7 @@ Complete the following steps to sync DNS  data from AWS and Azure.
 
 🔐 (Optional) Log in to Your Cloud Account Consoles
 
-You should already be signed in to both the AWS,GCP and Azure web consoles via the embedded tabs on the left-hand side of the Instruqt interface.
+You should already be signed in to the AWS,GCP and Azure web consoles via the embedded tabs on the left-hand side of the Instruqt interface.
 
 ⚠️ Only perform this step if you’re logged out or the session has expired.
 
@@ -394,7 +394,7 @@ Open and login to Infoblox UDDI Portal.
 
 ✅ Step 1: Verify Discovery Sync
 
-We navigate to Configure > Networking > Discovery to confirm that discovery jobs for AWS and Azure are in a **Synced** state and GCP is in disabled state.
+We navigate to Configure > Networking > Discovery to confirm that discovery jobs for AWS, Azure and GCP jobs.
 
 
 ![Screenshot 2025-07-03 at 06.13.17.png](https://play.instruqt.com/assets/tracks/ywozzymyekgv/806b671c5740f908a52bd6b756010b22/assets/Screenshot%202025-07-03%20at%2006.13.17.png)

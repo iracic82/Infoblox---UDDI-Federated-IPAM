@@ -185,6 +185,9 @@ AZURE CREDENTIALS
 
 # GCP Credentials ☁️
 
+
+👉 Open the Instruqt tab on the left labelled “GCP Console” This will launch the GCP login page directly inside your sandbox environment.
+
 **GCP Project**
 ```
 [[ Instruqt-Var key="INSTRUQT_GCP_PROJECT_INFOBLOX_DEMO_PROJECT_NAME" hostname="shell" ]]
