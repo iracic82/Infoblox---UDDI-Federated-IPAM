@@ -152,6 +152,10 @@ terraform apply --auto-approve
 
 This will provision the AWS resources using IP address data managed in Infoblox UDDI.
 
+
+> [!IMPORTANT]
+> Note that the actual subnet_id and vpc_id values in your environment will differ from the sample output shown above.
+
 🧠 Pro tip:
 To review or edit the Terraform code, use the Editor tab located in the left-hand panel of the Instruqt lab environment.
 
