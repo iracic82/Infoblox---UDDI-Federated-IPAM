@@ -397,7 +397,7 @@ Open and login to Infoblox UDDI Portal.
 We navigate to Configure > Networking > Discovery to confirm that discovery jobs for AWS, Azure and GCP jobs.
 
 
-![Screenshot 2025-07-03 at 06.13.17.png](https://play.instruqt.com/assets/tracks/ywozzymyekgv/806b671c5740f908a52bd6b756010b22/assets/Screenshot%202025-07-03%20at%2006.13.17.png)
+![Screenshot 2025-08-20 at 11.06.18.png](https://play.instruqt.com/assets/tracks/l95dr3nibefy/00d2edc95e6b6d25047b74b9f3732a08/assets/Screenshot%202025-08-20%20at%2011.06.18.png)
 
 
 🌐 Step 2: Explore AWS DNS Zones
