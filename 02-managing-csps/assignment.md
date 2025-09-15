@@ -7,6 +7,8 @@ teaser: Managing Public Cloud Providers DNS  & IPAM
 notes:
 - type: video
   url: https://www.youtube.com/embed/7Ohhwuouw3A?si=m-BXbZGfPMEYS0z5
+- type: video
+  url: https://www.youtube.com/embed/H0t7P8mnXw4?si=IRqb9o-d-sHuXCnj
 tabs:
 - id: whwihuavueef
   title: Shell
