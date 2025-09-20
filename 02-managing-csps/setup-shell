@@ -15,9 +15,9 @@ cd /root/infoblox-lab/uddi-ipam/scripts || {
 
 # === Discovery Deployments ===
 echo "📦 Deploying AWS discovery..."
-python3 deploy_aws_discovery_final.py
+python3 deploy_aws_discovery_final.py || echo "❌ AWS discovery failed, continuing..."
 sleep 120
 
 echo "📦 Deploying Azure discovery..."
-python3 deploy_azure_discovery.py
+python3 deploy_azure_discovery.py || echo "❌ Azure discovery failed, continuing..."
 sleep 120
