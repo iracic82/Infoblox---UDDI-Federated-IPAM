@@ -27,19 +27,19 @@ sleep 480
 #sleep 120
 
 echo "📦 Deploying GCP discovery..."
-python3 deploy_gcp_discovery.py
+python3 deploy_gcp_discovery_final.py || echo "❌ GCP discovery failed, continuing..."
 sleep 120
 
 # === IPAM and API Key ===
 echo "🧠 Deploying IPAM configuration..."
-python3 deploy_ipam.py
+python3 deploy_ipam.py || echo "❌ IPAM configuration failed, continuing..."
 sleep 30
 
 echo "🔐 Deploying API key..."
-python3 deploy_api_key.py
+python3 deploy_api_key.py || echo "❌ API key deployment failed, continuing..."
 
 # Optional: reload bash config
 source /root/.bashrc || true
 
-echo "✅ Setup complete and ready."
+echo "✅ Setup complete and ready (even if some steps failed)."
 exit 0
