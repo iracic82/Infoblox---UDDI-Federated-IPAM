@@ -467,6 +467,8 @@ Confirm that these were pulled from Azure Private DNS that has been created.
 
 ![Screenshot 2025-07-03 at 06.19.40.png](https://play.instruqt.com/assets/tracks/ywozzymyekgv/0d9b3b32c7862b9a7061d01e7a992edd/assets/Screenshot%202025-07-03%20at%2006.19.40.png)
 
+![Screenshot 2025-10-25 at 22.16.34.png](https://play.instruqt.com/assets/tracks/l95dr3nibefy/77ae3c1832e8eb487ec9294d0f258bf7/assets/Screenshot%202025-10-25%20at%2022.16.34.png)
+
 
 📊 Step 4: Inspect IPAM Data
 
