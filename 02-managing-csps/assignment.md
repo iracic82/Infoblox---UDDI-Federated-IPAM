@@ -461,7 +461,7 @@ Confirmed zone infolab.com exists and DNS records such as:
 
 azure-webprodeu1.infolab.com → 10.10.1.100
 
-azure-webprodeu2.infolab.com → 10.30.1.100
+azure-webprodeu2.infolab.com → 10.10.2.100
 
 Confirm that these were pulled from Azure Private DNS that has been created.
 
