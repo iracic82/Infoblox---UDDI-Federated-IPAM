@@ -315,6 +315,20 @@ But note — Infoblox won’t see this unless it’s managed via UDDI.
 The VPC is created… but off the grid.
 ❌ No sync. No tagging. No central visibility.
 
+📘 NOTE — New Infoblox IPAM UI Capability (Not Yet in This Lab Environment)
+Infoblox recently introduced the UDDI IPAM Perspective, a major enhancement to the IP Address Management experience.
+
+This feature is not yet enabled in the lab environment you’re using, but you will see it in production environments and future releases of this lab.
+What the new feature adds:
+- Automatically detects overlapping subnets across all discovered VPCs
+- Visually highlights conflicting or duplicated ranges
+- Displays complete address lineage (IP spaces → blocks → ranges → discovered ranges)
+- Makes drift and misaligned allocations immediately obvious
+- Provides a unified, cloud + on-prem source of truth for all IP activity
+
+
+👉 Using UDDI + Terraform ensures safe, conflict-free IP allocations — eliminating overlaps entirely.
+
 
 ![Screenshot 2025-07-11 at 07.32.33.png](https://play.instruqt.com/assets/tracks/l95dr3nibefy/6c933df67f1576703e2a1820f00b2192/assets/Screenshot%202025-07-11%20at%2007.32.33.png)
 
