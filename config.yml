@@ -76,7 +76,6 @@ gcp_projects:
   - roles/container.clusterViewer
   - roles/monitoring.viewer
   - roles/storage.admin
-  - roles/storage.folderAdmin
 aws_accounts:
 - name: infoblox-demo
   services:
