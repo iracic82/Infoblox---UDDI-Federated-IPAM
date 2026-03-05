@@ -57,7 +57,7 @@ echo "export TF_VAR_subscription=${INSTRUQT_AZURE_SUBSCRIPTION_INFOBLOX_TENANT_S
 echo "export TF_VAR_client=${INSTRUQT_AZURE_SUBSCRIPTION_INFOBLOX_TENANT_SPN_ID} " >> /root/.bashrc
 echo "export TF_VAR_clientsecret=${INSTRUQT_AZURE_SUBSCRIPTION_INFOBLOX_TENANT_SPN_PASSWORD} " >> /root/.bashrc
 echo "export TF_VAR_tenantazure=${INSTRUQT_AZURE_SUBSCRIPTION_INFOBLOX_TENANT_TENANT_ID} " >> /root/.bashrc
-echo "export Infoblox_Token=${Infoblox_Token} " >> /root/.bashrc
+#echo "export Infoblox_Token=${Infoblox_Token} " >> /root/.bashrc
 echo "export TF_VAR_instruqt_id=${INSTRUQT_PARTICIPANT_ID} " >> /root/.bashrc
 echo "export INFOBLOX_EMAIL=${INFOBLOX_EMAIL} " >> /root/.bashrc
 echo "export INFOBLOX_PASSWORD=${INFOBLOX_PASSWORD} " >> /root/.bashrc
@@ -77,6 +77,7 @@ source /root/.bashrc
 
 # Run Python scripts
 cd /root/infoblox-lab/uddi-ipam/scripts
+Infoblox_Token=${Infoblox_Token}
 python3 create_sandbox.py
 sleep 180
 python3 create_user.py
